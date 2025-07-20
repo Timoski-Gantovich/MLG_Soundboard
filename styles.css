@@ -1,0 +1,90 @@
+body {
+  background: black;
+  color: lime;
+  font-family: "Impact", sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.title {
+  font-size: clamp(1.5rem, 6vw, 3rem);
+  text-shadow: 0 0 10px red, 0 0 5px white;
+  margin-bottom: 30px;
+  white-space: nowrap;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+button.sound-btn {
+  background: #111;
+  border: 2px solid lime;
+  color: white;
+  font-size: 2rem;
+  padding: 20px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button.sound-btn:hover {
+  background: lime;
+  color: black;
+  text-shadow: 0 0 5px white;
+  transform: scale(1.1);
+}
+/* Global custom cursor */
+button,
+.sound-btn,
+button:hover {
+  cursor: url("icons/doritos_cursor_32x32.png") 0 0, auto !important;
+}
+.sound-btn.active {
+  background-color: yellow;
+  color: black;
+  box-shadow: 0 0 10px lime;
+}
+#rain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.rain-symbol {
+  position: absolute;
+  top: -50px;
+  animation: fall 4s linear forwards;
+  opacity: 0.85;
+}
+
+@keyframes fall {
+  0% {
+    top: -50px;
+    opacity: 1;
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+  }
+}
+.rain-symbol img {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
